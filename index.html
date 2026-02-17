@@ -187,6 +187,71 @@
         }
 
         /* Testimonial Cards */
+        /* Video Feature */
+        .video-feature {
+            position: absolute;
+            right: 5%;
+            top: 65%;
+            transform: translateY(-50%);
+            max-width: 450px;
+        }
+
+        .video-container {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .video-thumbnail:hover img {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s;
+        }
+
+        .video-thumbnail:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-caption {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .video-caption h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .video-caption p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Testimonial Cards (legacy - keeping for mobile) */
         .testimonial-cards {
             position: absolute;
             right: 5%;
@@ -998,6 +1063,10 @@
                 display: none;
             }
 
+            .video-feature {
+                display: none;
+            }
+
             .opportunities-section {
                 grid-template-columns: 1fr;
             }
@@ -1101,14 +1170,21 @@
                 </div>
             </div>
 
-            <div class="testimonial-cards">
-                <div class="testimonial-card orange">
-                    <div class="testimonial-image">👨‍👩‍👧</div>
-                    <div class="testimonial-text">"Volunteering with Colorado Serves connected my family to amazing opportunities across the state. We've made lasting friendships while giving back."</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-image">❤️</div>
-                    <div class="testimonial-text">"I found my passion for service through this platform. It's incredible to see the real-time impact we're making together—150,000 hours strong!"</div>
+            <div class="video-feature">
+                <div class="video-container">
+                    <div class="video-thumbnail" onclick="playVideo()">
+                        <img src="https://raw.githubusercontent.com/sloyacona/danielsfund/main/images/jared%20polis.jpg" alt="Governor Jared Polis">
+                        <div class="play-button">
+                            <svg width="80" height="80" viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="35" fill="rgba(255,255,255,0.9)"/>
+                                <polygon points="32,25 32,55 55,40" fill="#2D7F4F"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="video-caption">
+                        <h3>A Message from Governor Jared Polis</h3>
+                        <p>Join me in celebrating Colorado's 150th anniversary with 150,000 hours of service</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1120,22 +1196,22 @@
             <p class="partners-label">PROUDLY SUPPORTED BY</p>
             <div class="partner-logos">
                 <div class="partner-logo">
-                    <img src="https://github.com/sloyacona/danielsfund/blob/main/images/anschutz.png?raw=true" alt="Anschutz Foundation" class="partner-logo-img">
+                    <img src="https://raw.githubusercontent.com/sloyacona/danielsfund/main/images/anschutz.png" alt="Anschutz Foundation" class="partner-logo-img">
                 </div>
                 <div class="partner-logo">
-                    <img src="https://github.com/sloyacona/danielsfund/blob/main/images/boettcher.png?raw=true" alt="Boettcher Foundation" class="partner-logo-img">
+                    <img src="https://raw.githubusercontent.com/sloyacona/danielsfund/main/images/boettcher.png" alt="Boettcher Foundation" class="partner-logo-img">
                 </div>
                 <div class="partner-logo">
-                    <img src="https://github.com/sloyacona/danielsfund/blob/main/images/coors%20foundation.jpg?raw=true" alt="Coors Foundation" class="partner-logo-img">
+                    <img src="https://raw.githubusercontent.com/sloyacona/danielsfund/main/images/coors%20foundation.jpg" alt="Coors Foundation" class="partner-logo-img">
                 </div>
                 <div class="partner-logo">
-                    <img src="https://github.com/sloyacona/danielsfund/blob/main/images/daniels%20fund.jpg?raw=true" alt="Daniels Fund" class="partner-logo-img">
+                    <img src="https://raw.githubusercontent.com/sloyacona/danielsfund/main/images/daniels%20fund.jpg" alt="Daniels Fund" class="partner-logo-img">
                 </div>
                 <div class="partner-logo">
-                    <img src="https://github.com/sloyacona/danielsfund/blob/main/images/el%20pomar.png?raw=true" alt="El Pomar Foundation" class="partner-logo-img">
+                    <img src="https://raw.githubusercontent.com/sloyacona/danielsfund/main/images/el%20pomar.png" alt="El Pomar Foundation" class="partner-logo-img">
                 </div>
                 <div class="partner-logo">
-                    <img src="https://github.com/sloyacona/danielsfund/blob/main/images/gates%20family%20foundation.jpg?raw=true" alt="Gates Family Foundation" class="partner-logo-img">
+                    <img src="https://raw.githubusercontent.com/sloyacona/danielsfund/main/images/gates%20family%20foundation.jpg" alt="Gates Foundation" class="partner-logo-img">
                 </div>
             </div>
         </div>
@@ -2341,6 +2417,21 @@
                 answer.style.display = 'block';
                 toggle.textContent = '−';
             }
+        }
+
+        // Video Player
+        function playVideo() {
+            // Replace this URL with the actual Governor Polis video URL when available
+            const videoUrl = 'YOUR_VIDEO_URL_HERE';
+            
+            // For now, show an alert. Replace with actual video player
+            alert('Video player would open here with Governor Polis message about Colorado Serves.\n\nReplace YOUR_VIDEO_URL_HERE in the JavaScript with the actual video URL (YouTube, Vimeo, or direct video file).');
+            
+            // Example for YouTube:
+            // window.open(videoUrl, '_blank');
+            
+            // Or embed in modal:
+            // You can create a modal overlay with an iframe for the video
         }
 
         // Event Tabs
